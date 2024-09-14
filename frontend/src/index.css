@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+ul hr{
+    width: 0;
+    transition: all 0.3s ease;
+}
 .active hr{
-    @apply block
+    width: 100%;
 }
