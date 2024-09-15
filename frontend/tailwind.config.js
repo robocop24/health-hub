@@ -10,6 +10,9 @@ export default {
         'primary':'#00c9b7'
       }
     },
+    gridTemplateColumns:{
+      'auto':'repeat(auto-fill,minmax(200px,1fr))'
+    }
   },
   plugins: [],
 }
