@@ -9,3 +9,6 @@ ul hr{
 .active hr{
     width: 100%;
 }
+::-webkit-scrollbar{
+    @apply hidden
+}
