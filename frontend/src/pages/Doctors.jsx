@@ -6,6 +6,7 @@ const Doctors = () => {
 
   const { speciality } = useParams()
   const [filterDoc, setFilterDoc] = useState([])
+  const [showFilter, setShowFilter] = useState(false)
   const navigate = useNavigate()
   const docsType = ['General physician','Gynecologist','Dermatologist','Pediatricians','Neurologist','Gastroenterologist']
 
@@ -29,7 +30,9 @@ const Doctors = () => {
       <p className='text-gray-600'>Browse through the doctors specialist.</p>
       <div className='flex flex-col sm:flex-row items-start gap-5 mt-5'>
 
-        <div className='flex flex-col gap-4 text-gray-600 text-sm'>
+        <button onClick={()=>setShowFilter(prev=>!prev)} className={`py-1 px-3 border rounded text-sm transition-all sm:hidden ${showFilter?'bg-primary text-white':''}`}>Filters</button>
+
+        <div className={`flex-col gap-4 text-gray-600 text-sm ${showFilter?'flex':'hidden sm:flex'}`}>
           {docsType.map((item,index)=>(
             <p onClick={()=> speciality===item? navigate('/doctors'):navigate(`/doctors/${item}`)} key={index}  className={`w-[95vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${speciality===item? 'bg-indigo-100 text-black':''} `}>{item}</p>
           ))}
